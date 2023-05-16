@@ -7,6 +7,12 @@ salario_docente = 6000
 quantidade_diretoria = 1
 salario_diretoria = 12500
 
+empresa = 'Alura'
+empresa2 = 'Alura'
+
+professora = ' Geovana Alessandra dias Sanyos '
+print(professora)
+
 
 total_empregados = quantidade_diretoria + quantidade_docente + quantidade_seguranca
 print(total_empregados)
@@ -20,3 +26,8 @@ media = total_salario / total_empregados
 
 
 print(media)
+
+professora = professora.strip().replace('y', 't').upper()
+
+print(professora)
+
