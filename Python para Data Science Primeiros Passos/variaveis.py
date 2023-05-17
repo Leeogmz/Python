@@ -16,10 +16,10 @@ total_salario = quantidade_seguranca * salario_seguranca + quantidade_docente * 
 
 diferenca_salario  = salario_diretoria - salario_seguranca
 
-media = total_salario / total_empregados
+media_salario = total_salario / total_empregados
 
 
-print(media)
+print(media_salario)
 
 professora = professora.strip().replace('y', 't').upper()
 
@@ -30,5 +30,15 @@ nome = input('Escreva seu nome: ')
 ano_entrada = int(input('Escreva o ano de ingresso do(a) estudante: '))
 
 print(f'Nome do aluno: {nome} - Ano de entrada: {ano_entrada}')
-Le
+
+print('Nome do aluno é: %s, ele ingressou no ano de: %d.' %(nome, ano_entrada))
+
+
+if 2<7:
+    print('Condição verdadeira')
+else: 
+    print('Condição falsa')    
+
+
+
 
