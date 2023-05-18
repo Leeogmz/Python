@@ -29,15 +29,20 @@ nome = input('Escreva seu nome: ')
 
 ano_entrada = int(input('Escreva o ano de ingresso do(a) estudante: '))
 
-print(f'Nome do aluno: {nome} - Ano de entrada: {ano_entrada}')
+media = float(input('Digite a media do aluno: '))
 
-print('Nome do aluno é: %s, ele ingressou no ano de: %d.' %(nome, ano_entrada))
+if media >= 6.0:
+    situacao = 'Aprovado (a)'
+elif 6.0 > media >= 4.0:
+    situacao = 'Pode realizar a prova de recuperação'         
+else: situacao = 'Reprovado (a)'
+
+               
+
+print('Nome do aluno é: %s, ele ingressou no ano de: %d, e tem média de: %f, portanto sua situação é: %s' %(nome, ano_entrada, media, situacao))
 
 
-if 2<7:
-    print('Condição verdadeira')
-else: 
-    print('Condição falsa')    
+   
 
 
 
