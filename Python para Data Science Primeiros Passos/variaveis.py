@@ -24,26 +24,3 @@ print(media_salario)
 professora = professora.strip().replace('y', 't').upper()
 
 print(professora)
-
-nome = input('Escreva seu nome: ')
-
-ano_entrada = int(input('Escreva o ano de ingresso do(a) estudante: '))
-
-media = float(input('Digite a media do aluno: '))
-
-if media >= 6.0:
-    situacao = 'Aprovado (a)'
-elif 6.0 > media >= 4.0:
-    situacao = 'Pode realizar a prova de recuperação'         
-else: situacao = 'Reprovado (a)'
-
-               
-
-print('Nome do aluno é: %s, ele ingressou no ano de: %d, e tem média de: %f, portanto sua situação é: %s' %(nome, ano_entrada, media, situacao))
-
-
-   
-
-
-
-
