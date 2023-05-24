@@ -13,3 +13,14 @@ media = round(media, 2)
 
 print(media)
 
+def media ():
+    calculo =(10 + 9.5 + 8)/3
+
+    print(calculo)
+
+def media(nota_1, nota_2, nota_3):
+    calculo = (nota_1 + nota_2 + nota_3) /3
+    print(calculo)
+
+media(8.5,9.5,7)   
+
