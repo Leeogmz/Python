@@ -13,6 +13,7 @@ media = round(media, 2)
 
 print(media)
 
+
 def media ():
     calculo =(10 + 9.5 + 8)/3
 
@@ -22,5 +23,24 @@ def media(nota_1, nota_2, nota_3):
     calculo = (nota_1 + nota_2 + nota_3) /3
     print(calculo)
 
-media(8.5,9.5,7)   
+
+nota1 = 10
+nota2 = 9
+nota3 = 10
+
+media (nota1, nota2, nota3)
+
+
+
+
+notas = [9.5, 5.5, 7.5]
+
+
+def mediaList(lista):
+    calculo = sum(lista)/len(lista)
+    print (calculo)
+
+
+mediaList(notas)    
+
 
