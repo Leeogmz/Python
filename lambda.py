@@ -13,3 +13,16 @@ media_estudante = media_ponderada(n1, n2, n3)
 print(f'O(a) estudante atingiu uma média de {media_estudante}')
 
 
+#agora vamos acrescentrar 0.5 extra a essas notas usando a função map lambda e list
+notas = [n1, n2, n3]
+qualitativo = 0.5
+
+notas_atualizadas = map(lambda x: x + qualitativo, notas)
+
+
+
+print(list(notas_atualizadas))
+
+
+
+
