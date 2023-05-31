@@ -1,4 +1,6 @@
-# 3.2 List comprehension - É uma forma simples e concisa de criar uma lista. Podemos aplicar condicionais e laços para criar diversos tipos de listas a partir de padrões que desejamos para a nossa estrutura de dados. 
+''' 3.2 List comprehension - É uma forma simples e concisa de criar uma lista. 
+Podemos aplicar condicionais e laços para criar diversos tipos de listas a partir de padrões que desejamos para a nossa estrutura de dados. 
+uso padrao: lista = [exp for item in lista] '''
 
 
 
@@ -19,3 +21,7 @@ print(nomes)
 estudantes = list(zip(nomes, medias))
 
 print(estudantes)
+
+candidatos = [estudante[0] for estudante in estudantes if estudante[1] >= 8.0]
+
+print(candidatos)
