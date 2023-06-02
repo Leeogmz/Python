@@ -10,5 +10,16 @@ situacao = ["Aprovado" if media >= 6 else "Reprovado "for media in medias]
 cadastro = [x for x in [nomes, notas, medias]]
 
 lista_completa = [nomes, notas, medias, situacao]
-print(lista_completa)
+#print(lista_completa)
+
+
+coluna = ["Notas", "Media Final", "Situação" ]
+#cadastro = { chave: valor for item in lista}
+cadastro = { coluna[i]: lista_completa[i+1] for i in range(len(coluna))}
+
+
+
+cadastro ["Estudante"] = [ lista_completa[0][i][0] for i in range(len(lista_completa[0]))]
+
+print(cadastro)
 
