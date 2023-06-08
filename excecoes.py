@@ -15,5 +15,6 @@ try:
 except KeyError:
     print("Estudante não matriculado(a) na turma") 
 else:
-    print(resultado) 
-           
+    print(resultado)
+finally:
+    print("A consulta foi encerrada!") 
