@@ -18,3 +18,8 @@ else:
     print(resultado)
 finally:
     print("A consulta foi encerrada!") 
+
+
+
+
+    
