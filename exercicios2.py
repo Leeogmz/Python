@@ -24,7 +24,7 @@ imprimindo a informação 'Nome não encontrado' caso ocorra o erro e imprimir o
 
 Teste o programa com um nome presente em uma das chaves do dicionário e com um que não esteja no dicionário para verificar a mensagem de erro."""
 
-idades = {'Júlia': 16, 'Carol': 23, 'Alberto': 19, 'Roberta': 17}
+"""idades = {'Júlia': 16, 'Carol': 23, 'Alberto': 19, 'Roberta': 17}
 
 try:
     chave = input("Digite o nome do estudante: ")
@@ -32,4 +32,16 @@ try:
 except KeyError:
     print('Nome não encontrado')
 else:
-    print(valor)
+    print(valor)"""
+
+"""3) Crie uma função que recebe uma lista como parâmetro e converta todos os valores da lista para float. A função deve conter um tratamento de erro indicando o tipo de erro gerado e retornar a lista caso não tenha ocorrido nenhum erro. Por fim, deve ter a cláusula finally para imprimir o texto: 'Fim da execução da função'."""
+
+def converte_lista(lista):
+    try:
+        nova_lista = [float(elemento) for elemento in lista]
+    except Exception as e:
+        print(type(e), f'Erro: {e}')
+    else:
+        return nova_lista
+    finally:
+        print('Fim da execução da função')
