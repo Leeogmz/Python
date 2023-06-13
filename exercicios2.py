@@ -35,7 +35,7 @@ else:
     print(valor)"""
 
 """3) Crie uma função que recebe uma lista como parâmetro e converta todos os valores da lista para float. A função deve conter um tratamento de erro indicando o tipo de erro gerado e retornar a lista caso não tenha ocorrido nenhum erro. Por fim, deve ter a cláusula finally para imprimir o texto: 'Fim da execução da função'."""
-
+"""
 def converte_lista(lista):
     try:
         nova_lista = [float(elemento) for elemento in lista]
@@ -44,4 +44,47 @@ def converte_lista(lista):
     else:
         return nova_lista
     finally:
-        print('Fim da execução da função')
+        print('Fim da execução da função')"""
+
+
+""" 4) Crie uma função que recebe duas listas como parâmetros e agrupe os elementos um a um das listas, formando uma lista de tuplas de 3 elementos, no qual o primeiro e segundo elemento da tupla são os valores na posição i das listas e o terceiro elemento é a soma dos valores na posição i das listas.
+
+A função deve conter um tratamento de erro indicando o tipo de erro gerado e retornar como resultado a lista de tuplas. Caso as listas enviadas como parâmetro tenham tamanhos diferentes, a função deve retornar um IndexError com a frase: 'A quantidade de elementos em cada lista é diferente.'
+
+Dados para testar a função:"""
+
+#Valores sem erro:
+lista1 = [4,6,7,9,10]
+lista2 = [-4,6,8,7,9]
+
+#Listas com tamanhos diferentes:
+lista3 = [4,6,7,9,10,4]
+lista4 = [-4,6,8,7,9]
+
+
+
+
+
+def agrupar_listas(lista1, lista2):
+    try:
+        if len(lista1) != len(lista2):
+            raise IndexError('A quantidade de elementos em cada lista é diferente.')
+        
+        resultado = []
+        for i in range(len(lista1)):
+            valor1 = lista1[i]
+            valor2 = lista2[i]
+            soma = valor1 + valor2
+            resultado.append((valor1, valor2, soma))
+        
+        return resultado
+    
+    except IndexError as error:
+        return str(error)
+
+
+resultado = agrupar_listas(lista1, lista2)
+print(resultado)
+
+    
+   
