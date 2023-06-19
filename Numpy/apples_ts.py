@@ -24,6 +24,21 @@ Krasnodar = precos[:,3]
 Ekaterinburg = precos[:,4]
 
 
-grafico = plt.plot(datas, Kaliningrad)
+#grafico = plt.plot(datas, Kaliningrad)
+#plt.show()
+
+Moscow_ano1 = Moscow[0:12]
+Moscow_ano2= Moscow[13:25]
+Moscow_ano3 = Moscow[25:37]
+Moscow_ano4 = Moscow[37:49]
+
+plt.plot(np.arange(1,13,1) , Moscow_ano1)
+plt.plot(np.arange(1,13,1) , Moscow_ano2)
+plt.plot(np.arange(1,13,1) , Moscow_ano3)
+plt.plot(np.arange(1,13,1) , Moscow_ano4)
+plt.legend(['Ano1','Ano2','Ano3','Ano4', ])
 plt.show()
 
+print(np.array_equal(Moscow_ano3, Moscow_ano4))
+
+print(np.allclose(Moscow_ano3, Moscow_ano4,10))
