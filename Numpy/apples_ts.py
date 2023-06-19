@@ -24,8 +24,7 @@ Krasnodar = precos[:,3]
 Ekaterinburg = precos[:,4]
 
 
-#grafico = plt.plot(datas, Kaliningrad)
-#plt.show()
+
 
 Moscow_ano1 = Moscow[0:12]
 Moscow_ano2= Moscow[13:25]
@@ -39,6 +38,16 @@ plt.plot(np.arange(1,13,1) , Moscow_ano4)
 plt.legend(['Ano1','Ano2','Ano3','Ano4', ])
 plt.show()
 
-print(np.array_equal(Moscow_ano3, Moscow_ano4))
+#print(np.array_equal(Moscow_ano3, Moscow_ano4))
 
-print(np.allclose(Moscow_ano3, Moscow_ano4,10))
+#print(np.allclose(Moscow_ano3, Moscow_ano4,10))
+
+
+
+#print(sum(np.isnan(Kaliningrad))) #Retorna a quantidade de Nan 
+
+#(Kaliningrad[3] + Kaliningrad[5]) / 2
+Kaliningrad[4] = np.mean([Kaliningrad[3], Kaliningrad[5]])
+
+grafico = plt.plot(datas, Kaliningrad)
+plt.show()
