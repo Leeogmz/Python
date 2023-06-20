@@ -31,12 +31,12 @@ Moscow_ano2= Moscow[13:25]
 Moscow_ano3 = Moscow[25:37]
 Moscow_ano4 = Moscow[37:49]
 
-plt.plot(np.arange(1,13,1) , Moscow_ano1)
+""" plt.plot(np.arange(1,13,1) , Moscow_ano1)
 plt.plot(np.arange(1,13,1) , Moscow_ano2)
 plt.plot(np.arange(1,13,1) , Moscow_ano3)
 plt.plot(np.arange(1,13,1) , Moscow_ano4)
 plt.legend(['Ano1','Ano2','Ano3','Ano4', ])
-plt.show()
+plt.show() """
 
 #print(np.array_equal(Moscow_ano3, Moscow_ano4))
 
@@ -49,5 +49,17 @@ plt.show()
 #(Kaliningrad[3] + Kaliningrad[5]) / 2
 Kaliningrad[4] = np.mean([Kaliningrad[3], Kaliningrad[5]])
 
-grafico = plt.plot(datas, Kaliningrad)
+""" grafico = plt.plot(datas, Kaliningrad)
+plt.show() """
+
+x = datas
+
+y = 0.52*x+80
+
+plt.plot(datas, Moscow)
+plt.plot(x, y)
 plt.show()
+
+#np.sqrt(np.sum(np.power(Moscow - y, 2))) ou np.linalg.norm(Moscow-y)
+
+print(np.sqrt(np.sum(np.power(Moscow - y, 2))))
