@@ -63,3 +63,36 @@ plt.show()
 #np.sqrt(np.sum(np.power(Moscow - y, 2))) ou np.linalg.norm(Moscow-y)
 
 print(np.sqrt(np.sum(np.power(Moscow - y, 2))))
+
+
+
+
+""" A equação de uma reta na forma y = ax + b é uma expressão matemática que descreve a relação entre os valores de x e y em uma linha reta. O valor de "a" representa a inclinação (ou declive) da reta, que é a taxa de variação entre os valores de x e y. O valor de "b" é o ponto de intercepção no eixo y, ou seja, o valor de y quando x é igual a zero. Com essa equação, é possível plotar a reta em um sistema de coordenadas cartesianas, onde o eixo x representa os valores de x e o eixo y representa os valores de y. A equação da reta é amplamente utilizada em várias áreas da matemática e também em outras áreas, como física e engenharia, para modelar dados e prever comportamentos futuros.
+"""
+
+"""
+O coefiente angular pode ser obtido usando a equação:
+
+a = n*Soma( Xi*Yi ) - Soma( Xi )*Soma(Yi) / nSoma(Xi^2) - (Soma(Xi))^2 
+
+
+Coeficiente linear 
+
+b = Media(Yi) - a * Media(Xi) 
+
+"""
+
+
+n = np.size(Moscow) #número de elementos
+
+Y = Moscow
+
+X = datas
+
+a = (n*np.sum(X*Y) - np.sum(X) * np.sum(Y)) / (n*np.sum(X**2) - np.sum(X)**2) #Coeficiente angular
+
+b = b = np.mean(Y) - a*np.mean(X)
+
+y = a*X+b
+
+print(np.linalg.norm(Moscow-y))
