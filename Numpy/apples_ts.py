@@ -52,6 +52,8 @@ Kaliningrad[4] = np.mean([Kaliningrad[3], Kaliningrad[5]])
 """ grafico = plt.plot(datas, Kaliningrad)
 plt.show() """
 
+
+
 x = datas
 
 y = 0.52*x+80
@@ -96,3 +98,10 @@ b = b = np.mean(Y) - a*np.mean(X)
 y = a*X+b
 
 print(np.linalg.norm(Moscow-y))
+
+
+
+plt.plot(x, Moscow)
+plt.plot(41.5,41.5*a+b, '*r')
+plt.plot(100,100*a+b, '*r')
+plt.show()
