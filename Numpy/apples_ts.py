@@ -105,3 +105,18 @@ plt.plot(x, Moscow)
 plt.plot(41.5,41.5*a+b, '*r')
 plt.plot(100,100*a+b, '*r')
 plt.show()
+
+#print(np.random.randint(low=40,high=100,size=100))
+coef_angulares = np.random.uniform(low=0.10, high=0.90, size=100)
+
+
+norma = np.array([])
+
+for i in range (100):
+  norma = np.append(norma, np.linalg.norm(Moscow-(coef_angulares[i]*X+b)))
+
+
+print(norma)  
+
+print(coef_angulares[1])
+
