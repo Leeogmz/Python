@@ -107,7 +107,10 @@ plt.plot(100,100*a+b, '*r')
 plt.show()
 
 #print(np.random.randint(low=40,high=100,size=100))
+
+np.random.seed(16)
 coef_angulares = np.random.uniform(low=0.10, high=0.90, size=100)
+print(coef_angulares)
 
 
 norma = np.array([])
@@ -119,4 +122,6 @@ for i in range (100):
 print(norma)  
 
 print(coef_angulares[1])
+
+
 
