@@ -123,5 +123,11 @@ print(norma)
 
 print(coef_angulares[1])
 
+dados = np.column_stack([norma, coef_angulares])
+
+print(dados.shape)
+
+np.savetxt('dados.csv', dados, delimiter=',')
+
 
 
