@@ -6,3 +6,9 @@ dados = pd.read_csv(url,delimiter=";")
 print(dados.head()) #.head() para trazer as primeiras 5 linhas e .tail() para trazer as ultimas 5 linhas (caso precise trazer mais ou menos linhas basta inluir esse valor dentro do parametro da função)
 
 print(dados.shape)
+
+print(dados.columns)
+
+dados.info()
+
+print(dados[['Quartos', 'Valor']])
