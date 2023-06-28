@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 url = "https://raw.githubusercontent.com/alura-cursos/pandas-conhecendo-a-biblioteca/main/base-de-dados/aluguel.csv"
 dados = pd.read_csv(url,delimiter=";")
@@ -12,3 +14,13 @@ print(dados.columns)
 dados.info()
 
 print(dados[['Quartos', 'Valor']])
+
+print(dados['Valor'].mean())
+
+#print(dados.groupby('Tipo').mean(numeric_only = True)) para trazer a media somente das colunas do tipo numeric
+
+
+df_preco_tipo = dados.groupby('Tipo')[['Valor']].mean().sort_values('Valor')
+
+df_preco_tipo.plot(kind='barh', figsize=(14,10), color ='Blue')
+plt.show()
