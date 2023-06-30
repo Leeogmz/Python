@@ -24,3 +24,30 @@ df_preco_tipo = dados.groupby('Tipo')[['Valor']].mean().sort_values('Valor')
 
 df_preco_tipo.plot(kind='barh', figsize=(14,10), color ='Blue')
 plt.show()
+
+#print(dados.Tipo.unique()) para pegar os dados sem repetição de uma coluna
+
+imoveis_comerciais = ['Conjunto Comercial/Sala',
+                      'Prédio Inteiro', 'Loja/Salão',
+                      'Galpão/Depósito/Armazém',
+                      'Casa Comercial', 'Terreno Padrão',
+                      'Box/Garagem' ,'Chácara',
+                      'Loja Shopping/ Ct Comercial',
+                      'Loteamento/Condomínio', 'Sítio',
+                      'Pousada/Chalé','Hotel', 'Indústria']
+
+df = dados.query('@imoveis_comerciais not in Tipo')
+
+df.head()
+
+print(df.Tipo.unique())
+
+df_preco_tipo = df.groupby('Tipo')[['Valor']].mean().sort_values('Valor')
+
+df_preco_tipo.plot(kind='barh', figsize=(14,10), color ='Blue')
+plt.show()
+
+
+
+
+
