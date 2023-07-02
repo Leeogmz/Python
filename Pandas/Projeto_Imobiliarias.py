@@ -57,6 +57,24 @@ df = df.query('Tipo == "Apartamento"')
 
 print(df.head)
 
+#1) Calcular a média de quartos por apartamento;
+print(df['Quartos'].mean())
+
+#2) Conferir quantos bairros únicos existem na nossa base de dados;
+print(len(df['Bairro'].unique()))
+
+#3) Analisar quais bairros possuem a média de valor de aluguel mais elevadas;
+print(df.groupby('Bairro')[['Valor']].mean().sort_values('Valor'))
+
+#4) Criar um gráfico de barras horizontais que apresente os 5 bairros com as médias de valores de aluguel mais elevadas.
+df_bairros = df.groupby('Bairro')[['Valor']].mean().sort_values('Valor').tail()
+
+print(df_bairros)
+
+df_bairros.plot(kind='barh', figsize=(14,10), color='blue'); 
+plt.show()
+
+
 
 
 
