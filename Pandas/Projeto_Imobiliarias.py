@@ -22,8 +22,8 @@ print(dados['Valor'].mean())
 
 df_preco_tipo = dados.groupby('Tipo')[['Valor']].mean().sort_values('Valor')
 
-df_preco_tipo.plot(kind='barh', figsize=(14,10), color ='Blue')
-plt.show()
+#df_preco_tipo.plot(kind='barh', figsize=(14,10), color ='Blue')
+#plt.show()
 
 #print(dados.Tipo.unique()) para pegar os dados sem repetição de uma coluna
 
@@ -45,7 +45,17 @@ print(df.Tipo.unique())
 df_preco_tipo = df.groupby('Tipo')[['Valor']].mean().sort_values('Valor')
 
 df_preco_tipo.plot(kind='barh', figsize=(14,10), color ='Blue')
-plt.show()
+#plt.show()
+
+df_percentual_tipo = df.Tipo.value_counts(normalize=True).to_frame().sort_values('proportion')
+
+
+df_percentual_tipo.plot(kind='bar', figsize=(14,10), color ='Green', xlabel = 'Tipos', ylabel = 'Percentual')
+#plt.show()
+
+df = df.query('Tipo == "Apartamento"')
+
+print(df.head)
 
 
 
