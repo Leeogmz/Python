@@ -71,8 +71,13 @@ df_bairros = df.groupby('Bairro')[['Valor']].mean().sort_values('Valor').tail()
 
 print(df_bairros)
 
-df_bairros.plot(kind='barh', figsize=(14,10), color='blue'); 
-plt.show()
+df_bairros.plot(kind='barh', figsize=(14,10), color='blue');
+#plt.show()
+
+
+df = df.fillna(0)
+
+print(df.isnull().sum())
 
 
 
