@@ -89,6 +89,11 @@ df.drop('Tipo', axis=1, inplace=True)
 
 print(df.head())
 
+df.to_csv('dados_apartamento.csv', index=False, sep=';')
+
+
+
+print(pd.read_csv('dados_apartamento.csv'))
 
 
 
