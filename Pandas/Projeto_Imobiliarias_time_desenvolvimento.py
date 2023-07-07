@@ -9,4 +9,8 @@ dados['Valor_por_mes'] = dados['Valor'] + dados['Condominio']
 
 dados['Valor_por_ano'] = dados['Valor_por_mes'] * 12 + dados['IPTU']
 
+dados['Descricao'] = dados['Tipo'] + ' em ' +  dados['Bairro'] + ' com ' + dados['Quartos'].astype(str) + ' quarto(s) ' + ' e ' + dados ['Vagas'].astype(str) + ' vaga(s) de garagem.'
+
+dados.to_csv('dados_desenvolvimento.csv', index=False, sep=';')
+
 print(dados.head())
