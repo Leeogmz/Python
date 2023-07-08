@@ -13,4 +13,6 @@ dados['Descricao'] = dados['Tipo'] + ' em ' +  dados['Bairro'] + ' com ' + dados
 
 dados.to_csv('dados_desenvolvimento.csv', index=False, sep=';')
 
+dados['Possui_suite'] = dados['Suites'].apply(lambda x: 'Sim' if x > 0 else 'Não')
+
 print(dados.head())
