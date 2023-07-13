@@ -6,10 +6,9 @@ dados_pacientes_2 = pd.read_json('Pandas\Pandas-IO\data\pacientes_2.json')
 
 df_normalizado = pd.json_normalize(dados_pacientes_2['Pacientes'])
 
+df_normalizado.to_json('historico_pacientes_normalizado.json')
 
 
-print(dados_pacientes.head())
-print(dados_pacientes_2.head())
-print(df_normalizado.head())
+df = pd.read_json('historico_pacientes_normalizado.json')
 
-
+print(df.head())
