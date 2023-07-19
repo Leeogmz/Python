@@ -32,3 +32,18 @@ with engine.connect() as conn:
     conn.commit()    
     print("Registros excluídos:", result.rowcount)
 
+query2 = sqlalchemy.text('UPDATE Clientes SET Grau_escolaridade="Ensino superior" WHERE ID_Cliente=5008808')
+with engine.connect() as conn:
+    result = conn.execute(query2)
+    conn.commit()
+    print("Registros atualizados:", result.rowcount)
+
+
+query3 = 'SELECT * FROM Clientes'
+resultado = pd.read_sql(query3, engine)
+
+
+print(resultado)
+
+
+
