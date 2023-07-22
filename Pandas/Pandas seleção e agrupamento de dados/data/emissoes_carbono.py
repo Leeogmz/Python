@@ -18,4 +18,13 @@ emissoes_gases_final = emissoes_gases.drop(columns= 'Emissão / Remoção / Bunk
 
 
 
-print(emissoes_gases_final)
+
+
+colunas_info = list(emissoes_gases_final.loc[:,'Nível 1 - Setor' : 'Produto'].columns)
+
+colunas_emissao = list(emissoes_gases_final.loc[:,1970:2021].columns)
+
+emissoes_por_ano = emissoes_gases_final.melt(id_vars = colunas_info, value_vars=colunas_emissao, var_name='Ano', value_name='Emissao')
+
+print(emissoes_por_ano)
+
