@@ -26,5 +26,11 @@ colunas_emissao = list(emissoes_gases_final.loc[:,1970:2021].columns)
 
 emissoes_por_ano = emissoes_gases_final.melt(id_vars = colunas_info, value_vars=colunas_emissao, var_name='Ano', value_name='Emissao')
 
-print(emissoes_por_ano)
+
+#Para agrupar os gases (cria um dicionario com os gases separados ao adicionar o .groups
+emissoes_por_ano_agrupadas = emissoes_por_ano.groupby('Gás').groups
+#Para filtrar apenas um gás especifico
+#emissoes_por_ano_agrupadas = emissoes_por_ano.groupby('Gás').get_group('CO2 (t)')
+
+print(emissoes_por_ano_agrupadas)
 
