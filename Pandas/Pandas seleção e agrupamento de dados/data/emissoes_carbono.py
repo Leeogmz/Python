@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 caminho = 'C:\\Users\\leona\\OneDrive\\Documentos\\Estudos\\Python\\Pandas\\Pandas seleção e agrupamento de dados\\data\\1-SEEG10_GERAL-BR_UF_2022.10.27-FINAL-SITE.xlsx'
 
@@ -32,5 +34,10 @@ emissoes_por_ano_agrupadas = emissoes_por_ano.groupby('Gás').groups
 #Para filtrar apenas um gás especifico
 #emissoes_por_ano_agrupadas = emissoes_por_ano.groupby('Gás').get_group('CO2 (t)')
 
-print(emissoes_por_ano_agrupadas)
+emissoes_por_ano_agrupadas_soma = emissoes_por_ano.groupby('Gás')[['Emissao']].sum().sort_values('Emissao', ascending=False)
+
+emissoes_por_ano_agrupadas_soma.plot(kind= 'barh', figsize= (10,6));
+plt.show()
+
+#print(emissoes_por_ano_agrupadas_soma)
 
