@@ -33,6 +33,14 @@ print(f'A emissão de Co2 corresponde a {float((emissoes_por_gas_soma.iloc[0:9].
 
 gas_por_setor = emissoes_por_ano.groupby(['Gás', 'Nível 1 - Setor'])[['Emissao']].sum()
 
-co2_por_setor = gas_por_setor.xs('CO2 (t)', level = 0).idxmax()
 
-print(co2_por_setor)
+valores_max = gas_por_setor.groupby(level=0).max().values
+
+tabela_sumarizada = gas_por_setor.groupby(level = 0).idxmax()
+
+tabela_sumarizada.insert(1, 'Quantidade de emissao', valores_max)
+
+gas_por_atividade = gas_por_setor.swaplevel(0,1).groupby(level = 0).idxmax()
+
+
+print(gas_por_atividade)
