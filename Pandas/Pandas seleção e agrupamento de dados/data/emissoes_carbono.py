@@ -27,7 +27,7 @@ emissoes_por_ano_agrupadas = emissoes_por_ano.groupby('Gás').groups
 emissoes_por_gas_soma = emissoes_por_ano.groupby('Gás')[['Emissao']].sum().sort_values('Emissao', ascending=False)
 
 emissoes_por_gas_soma.plot(kind= 'barh', figsize= (10,6));
-#plt.show()
+
 
 print(f'A emissão de Co2 corresponde a {float((emissoes_por_gas_soma.iloc[0:9].sum()/emissoes_por_gas_soma.sum()).iloc[0])*100:.2f} % de emissão total de gases estufa no Brasil de 1970 a 2021. ')
 
@@ -42,5 +42,12 @@ tabela_sumarizada.insert(1, 'Quantidade de emissao', valores_max)
 
 gas_por_atividade = gas_por_setor.swaplevel(0,1).groupby(level = 0).idxmax()
 
+emissoes_por_ano.groupby('Ano')[['Emissao']].mean().plot(figsize= (10,6));
+#plt.show()
 
-print(gas_por_atividade)
+ano_pico_emissao = emissoes_por_ano.groupby('Ano')[['Emissao']].mean().idxmax()
+
+emissao_media_por_gas = emissoes_por_ano.groupby(['Ano','Gás'])[['Emissao']].mean()
+
+
+print(emissao_media_por_gas)
