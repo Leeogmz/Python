@@ -47,7 +47,13 @@ emissoes_por_ano.groupby('Ano')[['Emissao']].mean().plot(figsize= (10,6));
 
 ano_pico_emissao = emissoes_por_ano.groupby('Ano')[['Emissao']].mean().idxmax()
 
-emissao_media_por_gas = emissoes_por_ano.groupby(['Ano','Gás'])[['Emissao']].mean()
+emissao_media_por_gas = emissoes_por_ano.groupby(['Ano','Gás'])[['Emissao']].mean().reset_index()
 
+emissao_media_por_gas = emissao_media_por_gas.pivot_table(index= 'Ano', columns= 'Gás', values= 'Emissao')
+
+
+emissao_media_por_gas.plot(subplots=True, figsize= (10,40))
+
+plt.show()
 
 print(emissao_media_por_gas)
