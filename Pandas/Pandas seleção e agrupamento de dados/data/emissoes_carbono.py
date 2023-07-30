@@ -54,6 +54,11 @@ emissao_media_por_gas = emissao_media_por_gas.pivot_table(index= 'Ano', columns=
 
 emissao_media_por_gas.plot(subplots=True, figsize= (10,40))
 
+
+emissao_setores = emissoes_por_ano.pivot_table(values = 'Emissao', index = 'Ano', columns = 'Nível 1 - Setor', aggfunc = 'mean')
+
+emissao_setores.plot(subplots = True, figsize = (10,10))
+
 plt.show()
 
-print(emissao_media_por_gas)
+print(emissao_setores)
