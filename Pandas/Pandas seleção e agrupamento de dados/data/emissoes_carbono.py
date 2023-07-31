@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 
 caminho = 'C:\\Users\\leona\\OneDrive\\Documentos\\Estudos\\Python\\Pandas\\Pandas seleção e agrupamento de dados\\data\\1-SEEG10_GERAL-BR_UF_2022.10.27-FINAL-SITE.xlsx'
 
+caminho_IBGE = 'Pandas\\Pandas seleção e agrupamento de dados\\data\\POP2022_Municipios.xls'
+
 emissoes_gases = pd.read_excel(caminho, sheet_name='GEE Estados')
 
 emissoes_gases_final = emissoes_gases[emissoes_gases['Emissão / Remoção / Bunker'] == 'Emissão']
@@ -59,6 +61,17 @@ emissao_setores = emissoes_por_ano.pivot_table(values = 'Emissao', index = 'Ano'
 
 emissao_setores.plot(subplots = True, figsize = (10,10))
 
-plt.show()
+populacao = pd.read_excel(caminho_IBGE, header=1,skipfooter=34)
 
-print(emissao_setores)
+#plt.show() 
+
+
+populacao = populacao.assign(POPULAÇÃO_SEM_PARENTESES = populacao['POPULAÇÃO'].replace('\(\d{1,2}\)', '', regex=True),populacao = lambda x: x.loc[:,'POPULAÇÃO_SEM_PARENTESES'].replace('\.','',regex=True))
+
+populacao = populacao.astype({'populacao': 'int64'})
+
+populacao_estados = populacao.groupby('UF')[['populacao']].sum().reset_index()
+
+#populacao_parenteses = populacao[populacao['POPULAÇÃO'].str.contains('\(', na = False)]
+
+print(populacao_estados)
