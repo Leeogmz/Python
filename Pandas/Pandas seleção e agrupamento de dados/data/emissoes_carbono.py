@@ -72,6 +72,10 @@ populacao = populacao.astype({'populacao': 'int64'})
 
 populacao_estados = populacao.groupby('UF')[['populacao']].sum().reset_index()
 
+emissao_estados = emissoes_por_ano[emissoes_por_ano['Ano']== 2021].groupby('Estado')[['Emissao']].sum().reset_index()
+
 #populacao_parenteses = populacao[populacao['POPULAÇÃO'].str.contains('\(', na = False)]
 
-print(populacao_estados)
+dados_agrupados = pd.merge(emissao_estados, populacao_estados,left_on='Estado',right_on= 'UF')
+
+print(dados_agrupados)
