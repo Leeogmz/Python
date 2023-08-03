@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 
 caminho = 'C:\\Users\\leona\\OneDrive\\Documentos\\Estudos\\Python\\Pandas\\Pandas seleção e agrupamento de dados\\data\\1-SEEG10_GERAL-BR_UF_2022.10.27-FINAL-SITE.xlsx'
@@ -77,5 +78,9 @@ emissao_estados = emissoes_por_ano[emissoes_por_ano['Ano']== 2021].groupby('Esta
 #populacao_parenteses = populacao[populacao['POPULAÇÃO'].str.contains('\(', na = False)]
 
 dados_agrupados = pd.merge(emissao_estados, populacao_estados,left_on='Estado',right_on= 'UF')
+
+dados_agrupados = dados_agrupados.assign(emissao_per_capita = dados_agrupados['Emissao'] / dados_agrupados['populacao']).sort_values('emissao_per_capita', ascending=True)
+
+
 
 print(dados_agrupados)
