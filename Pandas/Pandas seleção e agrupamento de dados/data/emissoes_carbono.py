@@ -81,6 +81,9 @@ dados_agrupados = pd.merge(emissao_estados, populacao_estados,left_on='Estado',r
 
 dados_agrupados = dados_agrupados.assign(emissao_per_capita = dados_agrupados['Emissao'] / dados_agrupados['populacao']).sort_values('emissao_per_capita', ascending=True)
 
+fig=px.bar(data_frame= dados_agrupados, x = 'Estado', y='emissao_per_capita')
+
+fig.show()
 
 
 print(dados_agrupados)
