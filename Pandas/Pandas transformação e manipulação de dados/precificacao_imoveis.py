@@ -17,6 +17,13 @@ dados_hospedagem[col_numericas] = dados_hospedagem[col_numericas].astype(np.int6
 
 dados_hospedagem['avaliacao_geral'] = dados_hospedagem['avaliacao_geral'].astype(np.float64)
 
+dados_hospedagem[['taxa_limpeza', 'taxa_deposito', 'preco']] = dados_hospedagem[['taxa_limpeza', 'taxa_deposito', 'preco']].applymap(lambda x: x.replace('$','').replace(',','').strip())
+
+col_valores = ['taxa_limpeza', 'taxa_deposito', 'preco']
+
+dados_hospedagem[col_valores] = dados_hospedagem[col_valores].astype(np.float64)
+
+
 print(dados_hospedagem.info())
 
 print(dados_hospedagem)
