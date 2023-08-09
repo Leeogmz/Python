@@ -23,7 +23,16 @@ col_valores = ['taxa_limpeza', 'taxa_deposito', 'preco']
 
 dados_hospedagem[col_valores] = dados_hospedagem[col_valores].astype(np.float64)
 
+dados_hospedagem['descricao_local'] = dados_hospedagem['descricao_local'].str.lower()
 
-print(dados_hospedagem.info())
+dados_hospedagem['descricao_local']=dados_hospedagem['descricao_local'].str.replace('[^a-zA-Z0-9\-\']',' ', regex=True)
 
-print(dados_hospedagem)
+dados_hospedagem['descricao_local']=dados_hospedagem['descricao_local'].str.replace('(?<!\w)-(?!\w)',' ', regex=True)
+
+
+print(dados_hospedagem['descricao_local'][3169])
+
+
+#print(dados_hospedagem.info())
+
+#print(dados_hospedagem)
