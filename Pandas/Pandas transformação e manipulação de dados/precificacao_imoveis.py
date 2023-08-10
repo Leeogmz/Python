@@ -29,8 +29,13 @@ dados_hospedagem['descricao_local']=dados_hospedagem['descricao_local'].str.repl
 
 dados_hospedagem['descricao_local']=dados_hospedagem['descricao_local'].str.replace('(?<!\w)-(?!\w)',' ', regex=True)
 
+dados_hospedagem['descricao_local'] = dados_hospedagem['descricao_local'].str.split()
 
-print(dados_hospedagem['descricao_local'][3169])
+dados_hospedagem['comodidades'] = dados_hospedagem['comodidades'].str.replace('\{|}|\"', '', regex=True)
+
+dados_hospedagem['comodidades'] = dados_hospedagem['comodidades'].str.split(',')
+
+print(dados_hospedagem['comodidades'][3169])
 
 
 #print(dados_hospedagem.info())
