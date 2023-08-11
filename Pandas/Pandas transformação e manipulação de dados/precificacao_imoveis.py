@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 
 dados_hospedagem = pd.read_json('Pandas\\Pandas transformação e manipulação de dados\\data\\dados_hospedagem.json')
+moveis_disponiveis = pd.read_json('Pandas\\Pandas transformação e manipulação de dados\\data\\moveis_disponiveis.json')
 
 dados_hospedagem = pd.json_normalize(dados_hospedagem['info_moveis'])
 
@@ -35,9 +36,8 @@ dados_hospedagem['comodidades'] = dados_hospedagem['comodidades'].str.replace('\
 
 dados_hospedagem['comodidades'] = dados_hospedagem['comodidades'].str.split(',')
 
-print(dados_hospedagem['comodidades'][3169])
+moveis_disponiveis['data'] = pd.to_datetime(moveis_disponiveis['data'])
 
+moveis_disponiveis.info()
 
-#print(dados_hospedagem.info())
-
-#print(dados_hospedagem)
+print(moveis_disponiveis)
