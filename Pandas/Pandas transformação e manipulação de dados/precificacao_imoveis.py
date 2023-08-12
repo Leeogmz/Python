@@ -38,6 +38,8 @@ dados_hospedagem['comodidades'] = dados_hospedagem['comodidades'].str.split(',')
 
 moveis_disponiveis['data'] = pd.to_datetime(moveis_disponiveis['data'])
 
+subset = moveis_disponiveis.groupby(moveis_disponiveis['data'].dt.strftime('%Y-%m'))['vaga_disponivel'].sum()
+
 moveis_disponiveis.info()
 
-print(moveis_disponiveis)
+print(subset)
