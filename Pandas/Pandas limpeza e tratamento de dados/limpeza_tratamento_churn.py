@@ -16,12 +16,23 @@ dados_normalizados.loc[idx, 'conta.cobranca.Total'] = dados_normalizados.loc[idx
 
 dados_normalizados.loc[idx, 'cliente.tempo_servico'] = 24
 
-print(dados_normalizados.loc[idx][
+"""print(dados_normalizados.loc[idx][
     ['cliente.tempo_servico','conta.contrato' ,'conta.cobranca.mensal','conta.cobranca.Total' ]
-    ])
+    ])"""
 
 dados_normalizados['conta.cobranca.Total'] = dados_normalizados['conta.cobranca.Total'].astype('float64') 
 
-dados_normalizados.info()
+"""for col in dados_normalizados.columns:
+    print(f"Colina: {col}")
+    print(dados_normalizados[col].unique())
+    print("-" * 30)"""
 
-print(dados_normalizados.head())
+dados_sem_vazio = dados_normalizados[dados_normalizados['Churn'] != ''].copy()
+
+dados_sem_vazio.reset_index(drop=True, inplace=True)
+
+dados_sem_vazio.info()
+
+#dados_normalizados.info()
+
+print(dados_sem_vazio)
