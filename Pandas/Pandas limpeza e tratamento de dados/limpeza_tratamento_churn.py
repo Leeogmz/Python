@@ -31,8 +31,11 @@ dados_sem_vazio = dados_normalizados[dados_normalizados['Churn'] != ''].copy()
 
 dados_sem_vazio.reset_index(drop=True, inplace=True)
 
-dados_sem_vazio.info()
+dados_sem_vazio.drop_duplicates(inplace=True)
+
+filtro_duplicadas = dados_sem_vazio.duplicated()
+
 
 #dados_normalizados.info()
 
-print(dados_sem_vazio)
+print(filtro_duplicadas)
