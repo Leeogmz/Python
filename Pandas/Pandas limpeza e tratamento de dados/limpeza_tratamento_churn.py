@@ -34,8 +34,6 @@ dados_sem_vazio.drop_duplicates(inplace=True)
 
 filtro_duplicadas = dados_sem_vazio.duplicated()
 
-#print(dados_sem_vazio[dados_sem_vazio.isna().any(axis=1)])
-
 filtro = dados_sem_vazio['cliente.tempo_servico'].isna()
 
 dados_sem_vazio['cliente.tempo_servico'].fillna(
@@ -44,9 +42,12 @@ dados_sem_vazio['cliente.tempo_servico'].fillna(
     ), inplace=True
 )
 
+colunas_dropar = ['conta.contrato', 'conta.faturamente_eletronico', 'conta.metodo_pagamento']
 
-#dados_normalizados.info()
+dados_sem_vazio[colunas_dropar].isna().any(axis=1).sum()
 
-#print(filtro_duplicadas)
+df_sem_nulos = dados_sem_vazio.dropna(subset=colunas_dropar).copy()
 
-print(dados_sem_vazio[filtro][['cliente.tempo_servico','conta.cobranca.mensal', 'conta.cobranca.Total']])
+df_sem_nulos.reset_index(drop=True, inplace=True)
+
+print(df_sem_nulos)
