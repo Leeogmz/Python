@@ -1,6 +1,9 @@
 import pandas as pd
 import json 
 import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 
 dados_churn = pd.read_json('Pandas\\Pandas limpeza e tratamento de dados\\data\\dataset-telecon.json')
 
@@ -50,4 +53,17 @@ df_sem_nulos = dados_sem_vazio.dropna(subset=colunas_dropar).copy()
 
 df_sem_nulos.reset_index(drop=True, inplace=True)
 
-print(df_sem_nulos)
+sns.boxplot(x=df_sem_nulos['cliente.tempo_servico'])
+#plt.show()
+
+Q1 = df_sem_nulos['cliente.tempo_servico'].quantile(.25)
+Q3 = df_sem_nulos['cliente.tempo_servico'].quantile(.75)
+IQR = Q3 - Q1
+limite_inferior = Q1 - 1.5 * IQR
+limite_superior = Q3 + 1.5 * IQR
+
+outliers_index = (df_sem_nulos['cliente.tempo_servico'] < limite_inferior) | (df_sem_nulos['cliente.tempo_servico'] > limite_superior)
+
+print(outliers_index)
+
+print(df_sem_nulos[outliers_index]['cliente.tempo_servico'])
