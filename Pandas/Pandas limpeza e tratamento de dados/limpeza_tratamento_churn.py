@@ -53,8 +53,7 @@ df_sem_nulos = dados_sem_vazio.dropna(subset=colunas_dropar).copy()
 
 df_sem_nulos.reset_index(drop=True, inplace=True)
 
-sns.boxplot(x=df_sem_nulos['cliente.tempo_servico'])
-#plt.show()
+#sns.boxplot(x=df_sem_nulos['cliente.tempo_servico'])
 
 Q1 = df_sem_nulos['cliente.tempo_servico'].quantile(.25)
 Q3 = df_sem_nulos['cliente.tempo_servico'].quantile(.75)
@@ -64,6 +63,34 @@ limite_superior = Q3 + 1.5 * IQR
 
 outliers_index = (df_sem_nulos['cliente.tempo_servico'] < limite_inferior) | (df_sem_nulos['cliente.tempo_servico'] > limite_superior)
 
-print(outliers_index)
+df_sem_nulos[outliers_index]['cliente.tempo_servico']
 
-print(df_sem_nulos[outliers_index]['cliente.tempo_servico'])
+df_sem_out = df_sem_nulos.copy()
+
+df_sem_out[outliers_index]['cliente.tempo_servico']
+
+df_sem_out.loc[outliers_index, 'cliente.tempo_servico'] = np.ceil(
+
+        df_sem_out.loc[outliers_index,'conta.cobranca.Total'] / df_sem_out.loc[outliers_index,'conta.cobranca.mensal']
+    )
+
+#sns.boxplot(x=df_sem_out['cliente.tempo_servico'])
+
+print(df_sem_out[outliers_index][['cliente.tempo_servico','conta.cobranca.mensal', 'conta.cobranca.Total']])
+
+Q1 = df_sem_out['cliente.tempo_servico'].quantile(.25)
+Q3 = df_sem_out['cliente.tempo_servico'].quantile(.75)
+IQR = Q3 - Q1
+limite_inferior = Q1 - 1.5 * IQR
+limite_superior = Q3 + 1.5 * IQR
+
+outliers_index = (df_sem_out['cliente.tempo_servico'] < limite_inferior) | (df_sem_out['cliente.tempo_servico'] > limite_superior)
+
+df_sem_out = df_sem_out[~outliers_index]
+
+df_sem_out.reset_index(drop=True, inplace=True)
+
+print(df_sem_out)
+
+sns.boxplot(x=df_sem_out['cliente.tempo_servico'])
+plt.show()
