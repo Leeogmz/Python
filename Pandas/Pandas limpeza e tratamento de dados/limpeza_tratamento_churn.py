@@ -76,7 +76,7 @@ df_sem_out.loc[outliers_index, 'cliente.tempo_servico'] = np.ceil(
 
 #sns.boxplot(x=df_sem_out['cliente.tempo_servico'])
 
-print(df_sem_out[outliers_index][['cliente.tempo_servico','conta.cobranca.mensal', 'conta.cobranca.Total']])
+#print(df_sem_out[outliers_index][['cliente.tempo_servico','conta.cobranca.mensal', 'conta.cobranca.Total']])
 
 Q1 = df_sem_out['cliente.tempo_servico'].quantile(.25)
 Q3 = df_sem_out['cliente.tempo_servico'].quantile(.75)
@@ -90,7 +90,22 @@ df_sem_out = df_sem_out[~outliers_index]
 
 df_sem_out.reset_index(drop=True, inplace=True)
 
-print(df_sem_out)
-
 sns.boxplot(x=df_sem_out['cliente.tempo_servico'])
-plt.show()
+#plt.show()
+
+df_sem_id = df_sem_out.drop('id_cliente', axis=1).copy()
+
+mapeamento = {
+    'nao': 0,
+    'sim': 1,
+    'masculino': 0,
+    'feminino': 1
+}
+
+colunas = ['telefone.servico_telefone', 'Churn', 'cliente.parceiro', 'cliente.dependentes', 'conta.faturamente_eletronico', 'cliente.genero']
+
+df_sem_id[colunas] = df_sem_id[colunas].replace(mapeamento)
+
+
+
+print(df_sem_id)
