@@ -106,6 +106,8 @@ colunas = ['telefone.servico_telefone', 'Churn', 'cliente.parceiro', 'cliente.de
 
 df_sem_id[colunas] = df_sem_id[colunas].replace(mapeamento)
 
+df_dummies = pd.get_dummies(df_sem_id,dtype=int).copy()
 
+print(df_dummies.columns)
 
-print(df_sem_id)
+print(df_dummies.info())
