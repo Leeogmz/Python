@@ -5,7 +5,7 @@ import scipy
 import matplotlib.pyplot as plt
 
 
-dados = pd.read_csv('C:\\Users\\leona\\OneDrive\\Documentos\\Estudos\\Python\\Estatística com Python\Frequências e medidas\\dados.csv')
+dados = pd.read_csv('Estatística com Python\Frequências e medidas\dados.csv')
 
 
 print(dados.head())
@@ -33,6 +33,27 @@ dist_freq_qualitativas.rename(index={0: 'Masculino' , 1: 'Feminino'}, inplace=Tr
 
 dist_freq_qualitativas.rename_axis('Sexo', axis='columns',inplace=True)
 
-print(frequencia)
-print(percentual)
-print(dist_freq_qualitativas)
+sexo = {0: 'Masculino',
+        1: 'Feminino'}
+
+cor = {0: 'Indígena',
+        2: 'Branca',
+        4: 'Preta',
+        6: 'Amarela',
+        8: 'Parda',
+        9: 'Sem declaração'}
+
+frequencia_sexo_cor = pd.crosstab(dados.Sexo,
+                         dados.Cor)
+frequencia_sexo_cor.rename(index = sexo, inplace = True)
+frequencia_sexo_cor.rename(columns = cor, inplace = True)
+
+
+percentual_sexo_cor = pd.crosstab(dados.Sexo,
+                         dados.Cor,
+                         normalize=True) * 100
+percentual_sexo_cor.rename(index = sexo, inplace = True)
+percentual_sexo_cor.rename(columns = cor, inplace = True)
+
+
+print(percentual_sexo_cor)
