@@ -55,5 +55,29 @@ percentual_sexo_cor = pd.crosstab(dados.Sexo,
 percentual_sexo_cor.rename(index = sexo, inplace = True)
 percentual_sexo_cor.rename(columns = cor, inplace = True)
 
+classes = [0, 1576, 3152, 7880, 15760, 200000]
 
-print(percentual_sexo_cor)
+labels = ['E', 'D', 'C', 'B', 'A']
+
+frequencia_renda = pd.value_counts(
+    pd.cut(dados.Renda,
+       bins = classes,
+       labels= labels,
+       include_lowest= True)
+)
+
+percentual_renda = pd.value_counts(
+    pd.cut(dados.Renda,
+       bins = classes,
+       labels= labels,
+       include_lowest= True),
+       normalize=True
+)
+
+dist_freq_quantitativas_personalizadas = pd.DataFrame(
+    {'Frequencia': frequencia_renda, 'Porcentagem (%)':percentual_renda}
+)
+
+dist_freq_quantitativas_personalizadas = dist_freq_quantitativas_personalizadas.sort_index(ascending=False)
+
+print(dist_freq_quantitativas_personalizadas)
