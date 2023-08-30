@@ -80,4 +80,33 @@ dist_freq_quantitativas_personalizadas = pd.DataFrame(
 
 dist_freq_quantitativas_personalizadas = dist_freq_quantitativas_personalizadas.sort_index(ascending=False)
 
-print(dist_freq_quantitativas_personalizadas)
+n = dados.shape[0]
+
+k = 1 + (10/3) * np.log10(n)
+
+k = int(k.round(0))
+
+frequencia2 = pd.value_counts(
+    pd.cut(
+        x = dados.Renda,
+        bins = k,
+        include_lowest=True
+    ),
+    sort=False
+)
+
+percentual2 = pd.value_counts(
+    pd.cut(
+        x = dados.Renda,
+        bins = k,
+        include_lowest=True
+    ),
+    sort=False,
+    normalize=True
+)
+
+dist_freq_quantitativas_amplitude_fixa = pd.DataFrame(
+    {'Frequencia': frequencia2, 'Porcentagem (%)':percentual2}
+)
+
+print(dist_freq_quantitativas_amplitude_fixa)
