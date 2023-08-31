@@ -109,4 +109,18 @@ dist_freq_quantitativas_amplitude_fixa = pd.DataFrame(
     {'Frequencia': frequencia2, 'Porcentagem (%)':percentual2}
 )
 
+
 print(dist_freq_quantitativas_amplitude_fixa)
+
+ax = sns.distplot(dados.Altura)
+
+ax.figure.set_size_inches(12, 6)
+ax.set_title('Distribuição de Frequências - Altura', fontsize=18)
+ax.set_xlabel('Metros', fontsize=14)
+
+ax.figure.set_size_inches(12, 6)
+ax.set_title('Distribuição de Frequências - Altura - KDE ', fontsize=18)
+ax.set_xlabel('Metros', fontsize=14)
+
+dist_freq_quantitativas_personalizadas['Frequencia'].plot.bar(width=1, color='blue', alpha=0.2, figsize= (12, 6))
+plt.show()
