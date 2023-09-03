@@ -123,4 +123,10 @@ ax.set_title('Distribuição de Frequências - Altura - KDE ', fontsize=18)
 ax.set_xlabel('Metros', fontsize=14)
 
 dist_freq_quantitativas_personalizadas['Frequencia'].plot.bar(width=1, color='blue', alpha=0.2, figsize= (12, 6))
-plt.show()
+#plt.show()
+
+renda_media = dados.Renda.mean()
+
+renda_media_por_sexo = dados.groupby('Sexo')['Renda'].mean()
+
+print(renda_media_por_sexo)
