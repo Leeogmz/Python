@@ -129,4 +129,6 @@ renda_media = dados.Renda.mean()
 
 renda_media_por_sexo = dados.groupby('Sexo')['Renda'].mean()
 
-print(renda_media_por_sexo)
+renda_mediana = dados.Renda.median()
+
+print(renda_mediana)
