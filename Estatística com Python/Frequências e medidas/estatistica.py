@@ -135,4 +135,12 @@ renda_moda = dados.Renda.mode()
 
 altura_moda = dados.Altura.mode()
 
+ax = sns.displot(dados.query('Renda < 20000').Renda)
+ax.figure.set_size_inches(12, 6)
+
+ax = sns.displot(dados.Altura)
+ax.figure.set_size_inches(12, 6)
+
+plt.show()
+
 print(altura_moda)
