@@ -7,10 +7,6 @@ import matplotlib.pyplot as plt
 
 dados = pd.read_csv('Estatística com Python\Frequências e medidas\dados.csv')
 
-
-print(dados.head())
-dados.info()
-
 print(sorted(dados['Anos de Estudo'].unique()))
 
 print(sorted(dados['UF'].unique()))
@@ -123,7 +119,6 @@ ax.set_title('Distribuição de Frequências - Altura - KDE ', fontsize=18)
 ax.set_xlabel('Metros', fontsize=14)
 
 dist_freq_quantitativas_personalizadas['Frequencia'].plot.bar(width=1, color='blue', alpha=0.2, figsize= (12, 6))
-#plt.show()
 
 renda_media = dados.Renda.mean()
 
@@ -141,6 +136,10 @@ ax.figure.set_size_inches(12, 6)
 ax = sns.displot(dados.Altura)
 ax.figure.set_size_inches(12, 6)
 
-plt.show()
+quartis = dados.Renda.quantile([0.25, 0.5, 0.75])
 
-print(altura_moda)
+decis = dados.Renda.quantile([i / 10 for i in range (1,10)])
+
+percentis = dados.Renda.quantile([i / 100 for i in range (1,100)])
+
+print(percentis)
