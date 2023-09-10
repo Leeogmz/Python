@@ -142,7 +142,6 @@ decis = dados.Renda.quantile([i / 10 for i in range (1,10)])
 
 percentis = dados.Renda.quantile([i / 100 for i in range (1,100)])
 
-
 ax = sns.boxplot( x = 'Altura', y = 'Sexo', data = dados, orient='h')
 ax.figure.set_size_inches(12, 4)
 ax.set_title('Altura', fontsize=18)
