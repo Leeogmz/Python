@@ -3,7 +3,9 @@ import matplotlib as plt
 import numpy as np
 from scipy.special import comb
 from scipy.stats import binom
-from scipy.stats import poison
+from scipy.stats import poisson
+from scipy.stats import norm
+
 
 dados = pd.read_csv('Estatística com Python\\Probabilidade e amostragem\\dados.csv')
 
@@ -40,8 +42,32 @@ equipes = 30 * probabilidade
 media = 20
 k = 15
 
-probabilidade = (np.e(-media)*(media**k))/(np.math.factorial(k))
+probabilidade3 = (np.e ** (-media) * (media ** k)) / np.math.factorial(k)
                  
-probabilidade = poison.pmf(k, media)
+probabilidade4 = poisson.pmf(k, media)
 
-print('%0.8f' % probabilidade_de_passar3)
+tabela_normal_padronizada = pd.DataFrame(
+    [], 
+        index=["{0:0.2f}".format(i / 100) for i in range(0, 400, 10)],
+        columns = ["{0:0.2f}".format(i / 100) for i in range(0, 10)])
+
+for index in tabela_normal_padronizada.index:
+    for column in tabela_normal_padronizada.columns:
+        Z = np.round(float(index) + float(column), 2)
+        tabela_normal_padronizada.loc[index, column] = "{0:0.4f}".format(norm.cdf(Z))
+
+tabela_normal_padronizada.rename_axis('Z', axis = 'columns', inplace = True)
+
+print(tabela_normal_padronizada)
+
+media = 1.7
+
+desvio_padrao = 0.1
+
+z = (1.8 - media) / desvio_padrao
+
+probabilidade5 = 0.8413
+
+probabilidade6 = norm.cdf(z)
+
+print(probabilidade6)
