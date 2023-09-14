@@ -64,10 +64,17 @@ media = 1.7
 
 desvio_padrao = 0.1
 
-z = (1.8 - media) / desvio_padrao
+z_superior = (1.8 - media) / desvio_padrao
+z_superior = round(z_superior,2)
 
-probabilidade5 = 0.8413
+probabilidade5 = (0.8413 - 0.5) * 2
+probabilidade6 = norm.cdf(z_superior)
 
-probabilidade6 = norm.cdf(z)
+z_inferior = (1.6 - media) / desvio_padrao
+z_inferior = round(z_inferior,2)
 
-print(probabilidade6)
+probabilidade7 = norm.cdf(z_superior) - (1 - norm.cdf(z_superior))
+
+probabilidade8 = norm.cdf(z_superior) - norm.cdf(z_inferior)
+
+print(probabilidade8)
