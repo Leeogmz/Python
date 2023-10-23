@@ -17,8 +17,16 @@ import pandas as pd
 
 # ========= Layout ========= #
 layout = dbc.Col([
-                
-            ])
+
+    html.H1("Financeiro", className="text-primary"),
+    html.P("By Leonardo", className="text-info"),
+    html.Hr(),
+   
+# Seção Perfil
+    dbc.Button(id='botao_avatar',
+               children=[html.Img(src='/assets/img_hom.png', id='avatar_change', alt= 'Avatar', className='perfil_avatar')
+                         ], style={'background-color': 'transparent', 'border-color': 'transparent' })
+   ])
 
 
 
