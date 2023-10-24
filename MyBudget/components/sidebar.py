@@ -25,7 +25,27 @@ layout = dbc.Col([
 # Seção Perfil
     dbc.Button(id='botao_avatar',
                children=[html.Img(src='/assets/img_hom.png', id='avatar_change', alt= 'Avatar', className='perfil_avatar')
-                         ], style={'background-color': 'transparent', 'border-color': 'transparent' })
+                         ], style={'background-color': 'transparent', 'border-color': 'transparent' }),
+   
+
+# Seção novo 
+   
+    dbc.Row([
+        dbc.Col([
+            dbc.Button(color='success', id='open-novo-receita',
+                       children=['+ Receita'])
+
+        ], width=6),
+        dbc.Col([
+            dbc.Button(color='danger', id='open-novo-depesa',
+                       children=['+ Despesa'])
+
+        ], width=6) 
+    ])
+
+
+   
+   
    ])
 
 
