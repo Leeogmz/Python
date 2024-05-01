@@ -12,5 +12,3 @@ for elemento in entrada:
     soma += elemento
     saida.append(soma)
     print(saida)
-     
- 
