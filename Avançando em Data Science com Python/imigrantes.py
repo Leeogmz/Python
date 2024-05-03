@@ -44,4 +44,20 @@ ax.set_xlabel('Ano')
 ax.set_ylabel('Número de imigrantes')
 ax.xaxis.set_major_locator(plt.MultipleLocator(5))
 
+
+fig, axs = plt.subplots(1,2, figsize=(15,5))
+axs[0].plot(dados_brasil['ano'], dados_brasil['imigrantes'])
+axs[0].set_title('Imigração do Brasil para o Canadá\n1980 a 2013')
+axs[0].set_xlabel('Ano')
+axs[0].set_ylabel('Número de imigrantes')
+axs[0].xaxis.set_major_locator(plt.MultipleLocator(5))
+axs[0].grid()
+
+axs[1].boxplot(dados_brasil['imigrantes'])
+axs[1].set_title('Boxplot da imigração do Brasil para o Canadá\n1980 a 2013')
+axs[1].set_xlabel('Brasil')
+axs[1].set_ylabel('Número de imigrantes')
+axs[1].grid()
 plt.show()
+
+print(dados_brasil.describe())
