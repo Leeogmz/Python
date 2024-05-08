@@ -38,11 +38,17 @@ plt.legend()
 #Criando figura
 
 fig, ax = plt.subplots(figsize=(8,4))
-ax.plot(dados_brasil['ano'], dados_brasil['imigrantes'])
-ax.set_title('Imigração do Brasil para o Canadá\n1980 a 2013')
-ax.set_xlabel('Ano')
-ax.set_ylabel('Número de imigrantes')
+ax.plot(dados_brasil['ano'], dados_brasil['imigrantes'], lw=3)
+ax.set_title('Imigração do Brasil para o Canadá\n1980 a 2013', fontsize=18, loc='left')
+ax.set_xlabel('Ano', fontsize=14)
+ax.set_ylabel('Número de imigrantes', fontsize=14)
+ax.xaxis.set_tick_params(labelsize=12)
+ax.yaxis.set_tick_params(labelsize=12)
 ax.xaxis.set_major_locator(plt.MultipleLocator(5))
+plt.grid(linestyle='--')
+
+plt.show()
+
 
 # criando subplots em uma direção
 fig, axs = plt.subplots(1,2, figsize=(15,5))
@@ -91,5 +97,3 @@ xmax = 7000
 
 for ax in axs.ravel():
     ax.set_ylim(ymin,xmax)  
-    
-plt.show()
