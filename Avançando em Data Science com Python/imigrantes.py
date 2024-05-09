@@ -36,7 +36,6 @@ plt.xticks(['1980', '1985', '1990', '1995', '2000', '2005', '2010'])
 plt.legend()
 
 #Criando figura
-
 fig, ax = plt.subplots(figsize=(8,4))
 ax.plot(dados_brasil['ano'], dados_brasil['imigrantes'], lw=3)
 ax.set_title('Imigração do Brasil para o Canadá\n1980 a 2013', fontsize=18, loc='left')
@@ -48,7 +47,6 @@ ax.xaxis.set_major_locator(plt.MultipleLocator(5))
 plt.grid(linestyle='--')
 
 plt.show()
-
 
 # criando subplots em uma direção
 fig, axs = plt.subplots(1,2, figsize=(15,5))
