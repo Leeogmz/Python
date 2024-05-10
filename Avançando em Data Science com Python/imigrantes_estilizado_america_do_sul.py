@@ -36,5 +36,11 @@ ax.set_ylabel('')
 ax.xaxis.set_tick_params(labelsize=12)
 ax.yaxis.set_tick_params(labelsize=12)
 
-plt.show()
+for i, v in enumerate(america_sul_sorted['Total']):
+    ax.text(v + 100, i , str(v), color='black', fontsize=10, ha='left', va='center')
 
+ax.set_frame_on(False)
+ax.get_xaxis().set_visible(False)
+ax.tick_params(axis='both', which='both', length=0)
+
+plt.show()
