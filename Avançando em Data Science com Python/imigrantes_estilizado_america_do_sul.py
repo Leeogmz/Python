@@ -26,8 +26,6 @@ for pais in america_sul_sorted.index:
     else:
         cores.append('silver')
 
-
-
 fig, ax = plt.subplots(figsize=(12,5))
 ax.barh(america_sul_sorted.index, america_sul_sorted['Total'], color=cores)
 ax.set_title('América do sul: Brasil foi o quarto país com mais imigrantes\npara o Canadá, no período de 1980 a 2013', loc='left', fontsize=18)
@@ -42,5 +40,9 @@ for i, v in enumerate(america_sul_sorted['Total']):
 ax.set_frame_on(False)
 ax.get_xaxis().set_visible(False)
 ax.tick_params(axis='both', which='both', length=0)
+
+print(fig.canvas.get_supported_filetypes())
+
+fig.savefig('imigracao_america_sul.png', transparent=False, dpi=300, bbox_inches='tight')
 
 plt.show()

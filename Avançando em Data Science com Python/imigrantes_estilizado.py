@@ -22,8 +22,9 @@ ax.set_ylabel('Número de imigrantes', fontsize=14)
 ax.xaxis.set_tick_params(labelsize=12)
 ax.yaxis.set_tick_params(labelsize=12)
 ax.xaxis.set_major_locator(plt.MultipleLocator(5))
-#plt.grid(linestyle='--')
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
 
-print(df.head())
+fig.savefig('imigracao_brasil_canada.png', transparent=False, dpi=300, bbox_inches='tight')
 
 plt.show()
