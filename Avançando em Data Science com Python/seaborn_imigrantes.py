@@ -19,8 +19,6 @@ ax.set(title="Países com maior imigração para o Canadá\n1980 a 2013",
        xlabel='Número de Imigrantes',
         ylabel='')
 
-
-
 #criando uma figura
 
 fig, ax = plt.subplots(figsize=(8, 4))
@@ -29,6 +27,6 @@ ax = sns.barplot(data=top_10, y=top_10.index, x='Total', orient='h')
 
 ax.set_title('Países com maior imigração para o Canadá\n1980 a 2013', loc='left', fontsize=16)
 ax.set_xlabel('Número de imigrantes', fontsize=14)
-ax.set_ylabel('', fontsize=14)
+ax.set_ylabel('')
 
 plt.show()
