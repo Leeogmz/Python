@@ -17,6 +17,7 @@ dados_brasil = pd.DataFrame(brasil_dict)
 
 fig = px.line(dados_brasil, x='ano', y='imigrantes',
               title='Imigração dos Brasil para o Canadá no período de 1980 a 2013')
+fig.update_traces(line_color='green', line_width=4)
 fig.update_layout(width=1000,height=500,
                   xaxis={'tickangle': -45},
                   font_family = 'Arial',
