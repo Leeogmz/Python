@@ -24,3 +24,5 @@ fig.update_layout(
 )
 
 fig.show()
+
+fig.write_html('imigracao_america_sul.html')
