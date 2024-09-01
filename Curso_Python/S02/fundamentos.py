@@ -332,3 +332,10 @@ print(boolean)
 num = 10.1
 boolean = type(num) == float and (num == 10.1 or num == 20.2)
 print(boolean)
+
+#Slicing
+
+var = "Exemplo"
+print(var[1:3])
+print(var[3:])
+print(var[:5])
