@@ -31,3 +31,17 @@ else:
     for i in range(0,len(texto)):
         if letra == texto[i]:
             print('Encontei a letra " %s " na posição %d ' % (letra, i))
+
+texto = 'Olá, eu sou iterável'
+
+for x in texto:
+    print(x)
+
+for x in range(0,3):
+    for y in range(0,5):
+        print(x,y)
+
+for x in range(1,11):
+    print('______________________')
+    for y in range(1,11):
+        print('%d X %d = %d' % (x,y, x*y))        
