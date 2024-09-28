@@ -54,3 +54,51 @@ teste = lista.count(7)
 print(teste)
 pos = lista.index(5)
 print(pos)
+
+array1 = [1,2,3]
+array2 = [3,4,5]
+soma = array1 + array2
+print(soma)
+
+mult = array1 * 3
+print(mult)
+
+numeros = ['um', 'dois', 'três']
+x,y,z = numeros
+print(x)
+print(y)
+print(z)
+
+x,y,_ = numeros
+print(x)
+print(y)
+
+cores = ['azul', 'preto', 'amarelo']
+for x in cores:
+    print(x)
+
+print('____________')
+
+cores = ['azul', 'preto', 'amarelo']
+for i in range(0, len(cores)):
+    print(cores[i])
+
+print('____________')
+
+cores = ['azul', 'preto', 'amarelo']
+indice = 0
+
+while (indice <  len(cores)):
+    print(cores[indice])
+    indice += 1
+
+lista = [[1,2,3], [4,5,6]]
+
+primeira_lista = lista[0]
+segunda_lista = lista[1]
+
+print(primeira_lista)
+print(segunda_lista)
+
+primeiro_elemento_primeira_lista = lista[0][0]
+print(primeiro_elemento_primeira_lista)
