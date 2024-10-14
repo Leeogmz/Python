@@ -66,3 +66,55 @@ minha_funcao = printa
 print(type(minha_funcao))
 
 executa_func(minha_funcao, 10)
+
+def subtrai(num1,num2):
+    valor = num1 - num2
+    return valor
+subtracao = subtrai(10,3)
+print(subtracao)
+
+def len_int(numero):
+    numero_em_texto = str(numero)
+    return len(numero_em_texto)
+num1 = 10
+num2 = 1230
+
+tamanho1= len_int(num1)
+tamanho2= len_int(num2)
+
+print('O número %d tem %d dígitos' % (num1, tamanho1))
+print('O número %d tem %d dígitos' % (num2, tamanho2))
+
+def retorna_multiplo():
+    return 1,2
+valor = retorna_multiplo()
+print(valor)
+print(type(valor))
+
+def retorna_multiplo(a,b,c):
+    a+=a
+    b+=b
+    c+=c
+    return a,b,c
+
+x,y,z = retorna_multiplo(1,2,3)
+print(x,y,z)
+
+a = retorna_multiplo(1,2,3)
+print(a)
+
+def func():
+    print('Olá')
+    return
+    print('123')
+
+func()    
+
+def func(x):
+    if x == 'Olá':
+        print('Olá')
+        return
+    print('123')
+    return x
+
+func('x')  
