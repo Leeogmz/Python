@@ -41,3 +41,28 @@ def func(*args, outro):
 func(1,2,3, outro=1)
 func(outro=2)        
 func('Olá', True, [1,2,3], outro=3)
+
+
+def func(valor, nome = 'Teste'):
+    print(nome, valor)
+
+func(3)  
+func(3, 'Leonardo')  
+
+def func (**args):
+    print(type(args))
+    print(args)
+    print(args['valor'])
+
+func( valor = 10, operacao = 'soma', resultado = 10 )
+
+def printa(x):
+    print(x)
+
+def executa_func(func, x):
+    func(x)
+
+minha_funcao = printa
+print(type(minha_funcao))
+
+executa_func(minha_funcao, 10)
