@@ -118,3 +118,18 @@ def func(x):
     return x
 
 func('x')  
+
+faz_soma = lambda x : x + 10
+valor = faz_soma(2)
+print(valor)
+
+multiplica = lambda x,y : x * y
+valor = multiplica(2,10)
+print(valor)
+
+def multiplica(y):
+    return lambda x : x * y
+
+valor = multiplica(2)    
+resultado = valor(20)
+print(resultado)
