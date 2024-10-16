@@ -133,3 +133,24 @@ def multiplica(y):
 valor = multiplica(2)    
 resultado = valor(20)
 print(resultado)
+
+def print_num (num):
+    print(num)
+    if num >= 10:
+        return
+    print_num(num+1)
+
+print_num(0)
+
+def print_str(texto, indice):
+    if indice == len(texto):
+        return
+    print(texto[indice])
+    print_str(texto, indice + 1)
+print_str('python', 0)
+
+def fatorial(num):
+    if num == 1:
+        return 1
+    return num * fatorial(num-1)
+print(fatorial(5))
