@@ -154,3 +154,33 @@ def fatorial(num):
         return 1
     return num * fatorial(num-1)
 print(fatorial(5))
+
+def pai():
+    def filho():
+        print('sou filho!')
+    filho()
+
+pai()        
+
+def calculadora(num1, num2, op):
+    def soma(a,b):
+        return a+b
+    def subtrai(a,b):
+        return a-b
+    if op == '+':
+        return soma(num1,num2)
+    elif op == '-':
+        return subtrai(num1,num2)
+
+print(calculadora(10,5,'+')) 
+print(calculadora(10,5,'-'))
+
+def pega_func_print():
+    def print_var(var):
+        print(var)
+    return print_var
+
+print_me = pega_func_print()
+print(type(print_me))
+
+print_me(10)
