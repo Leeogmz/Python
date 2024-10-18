@@ -184,3 +184,45 @@ print_me = pega_func_print()
 print(type(print_me))
 
 print_me(10)
+
+def DeixaMaiusculo(func):
+    def inner_func():
+        return func().upper()
+    return inner_func
+
+@DeixaMaiusculo        
+def retorna_string():
+    return "string de teste"
+
+valor = retorna_string()
+print(valor)    
+
+
+def DeixaMaiusculo(func):
+    def inner_func(str1,str2):
+        return func(str1,str2).upper()
+    return inner_func
+
+@DeixaMaiusculo        
+def concatena_string(str1, str2):
+    return str1 + str2
+
+valor = concatena_string('teste', 'abc')
+print(valor)  
+
+def DeixaMaiusculo(func):
+    def inner_func(texto):
+        return func(texto).upper()
+    return inner_func
+
+def InsereParenteses(func):
+    def inner_func(texto):
+        return '(' + func(texto) + ')'
+    return inner_func
+
+@DeixaMaiusculo
+@InsereParenteses
+def formata_string(texto):
+    return texto
+
+print(formata_string('Olá esse texto será formatado! '))            
