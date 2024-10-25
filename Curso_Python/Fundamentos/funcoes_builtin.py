@@ -29,3 +29,15 @@ print(floor(2.4566))
 print(ceil(2.4566))
 
 print(divmod(10,4))
+
+numero = 70 
+caractere =  chr(numero)
+print('O numero %d é mapeado para o caractere %s' % (numero,caractere))
+
+for i in range(1,100):
+    caractere = chr(i)
+    print('%d - %s' % (i,caractere), end = '\n')
+
+caractere = 'F'
+numero = ord(caractere)
+print ('O caractere %s é mapeado para o numero %d   ' % (caractere,numero,))
